@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImageCellID" rowHeight="120" id="vSu-xu-0pK" customClass="ImageTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vSu-xu-0pK" id="TGm-cW-do0">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a4E-Af-BWg">
+                        <rect key="frame" x="180" y="0.0" width="240" height="119"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="240" id="HGz-Xx-HrG"/>
+                        </constraints>
+                    </imageView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kTm-Y2-R3p">
+                        <rect key="frame" x="282" y="41" width="37" height="37"/>
+                    </activityIndicatorView>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Load image failed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgN-aK-yfh">
+                        <rect key="frame" x="233" y="49" width="135" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="a4E-Af-BWg" secondAttribute="bottom" id="2va-lN-4iB"/>
+                    <constraint firstItem="sgN-aK-yfh" firstAttribute="centerX" secondItem="TGm-cW-do0" secondAttribute="centerX" id="FSx-VJ-Ncv"/>
+                    <constraint firstItem="a4E-Af-BWg" firstAttribute="top" secondItem="TGm-cW-do0" secondAttribute="top" id="Fag-rC-PMN"/>
+                    <constraint firstItem="a4E-Af-BWg" firstAttribute="centerX" secondItem="TGm-cW-do0" secondAttribute="centerX" id="Fbs-vf-9dv"/>
+                    <constraint firstItem="kTm-Y2-R3p" firstAttribute="centerY" secondItem="TGm-cW-do0" secondAttribute="centerY" id="PaO-Rw-sBr"/>
+                    <constraint firstItem="sgN-aK-yfh" firstAttribute="centerY" secondItem="TGm-cW-do0" secondAttribute="centerY" id="XCv-fA-CHY"/>
+                    <constraint firstItem="kTm-Y2-R3p" firstAttribute="centerX" secondItem="TGm-cW-do0" secondAttribute="centerX" id="che-5l-OGz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.58197999600000005" green="1" blue="0.58253089030000005" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="failedLabel" destination="sgN-aK-yfh" id="hZ0-3Z-nN7"/>
+                <outlet property="indicatorView" destination="kTm-Y2-R3p" id="0hW-Zx-e9z"/>
+                <outlet property="pictureView" destination="a4E-Af-BWg" id="APH-g3-TjE"/>
+            </connections>
+            <point key="canvasLocation" x="462" y="452"/>
+        </tableViewCell>
+    </objects>
+</document>
