@@ -8,8 +8,6 @@
 
 #import "ImageDownloadBaseOperation.h"
 
-typedef void(^ImageDownloadCompletedBlock)(UIImage *image, NSError *error);
-
 @interface ImageDownloadOperation : ImageDownloadBaseOperation
 
 @end

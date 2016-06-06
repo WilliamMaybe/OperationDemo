@@ -8,63 +8,77 @@
 
 #import "ImageDownloadOperation.h"
 
-@interface ImageDownloadOperation ()
+@interface ImageDownloadOperation () <NSURLConnectionDataDelegate>
+
+@property (nonatomic, strong) NSURLRequest *request;
+@property (nonatomic, strong) NSURLConnection *connection;
+
+@property (nonatomic, strong) NSMutableData *imageData;
 
 @end
 
 @implementation ImageDownloadOperation
 
-/**
- *  如果start和main方法都实现了，就不执行main了
- *
- *  以start优先
- */
-// 并发 concurrent
-//- (void)start
-//{
-//    if (self.isCancelled)
-//    {
-//        self.finished = YES;
-//        return;
-//    }
-//    
-//    NSLog(@"NSThread:%@  [%@ start]", [NSThread currentThread], self.name);
-//    
-//
-//    self.finished = YES;
-//}
-
-// 非并发 non-concurrent
-- (void)main
+- (instancetype)initWithImageURL:(NSString *)imageURL completion:(ImageDownloadCompletedBlock)completedBlock
 {
-    // 不是很明白为什么要使用释放池
-    @autoreleasepool {
-        if (self.isCancelled)
-        {
-            [self reset];
-            self.finishedA = YES;
-            return;
-        };
-        NSLog(@"[%@ main]", self.imageURL);
-        NSError *error = nil;
-        NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL options:NSDataReadingMappedIfSafe error:&error];
-        
-        if (error)
-        {
-            !self.completedBlock ?: self.completedBlock(nil, error);
-            self.completedBlock = nil;
-            self.finishedA = YES;
-            return;
-        }
-        
-        if (imageData)
-        {
-            UIImage *image = [UIImage imageWithData:imageData];
-            !self.completedBlock ?: self.completedBlock(image, nil);
-            self.completedBlock = nil;
-            self.finishedA = YES;
-        }
+    if (self = [super initWithImageURL:imageURL completion:completedBlock])
+    {
+        self.request = [[NSURLRequest alloc] initWithURL:self.imageURL];
     }
+    return self;
+}
+
+- (BOOL)isAsynchronous
+{
+    return YES;
+}
+
+- (void)start
+{
+    if (self.isCancelled)
+    {
+        self.finishedA = YES;
+        [self reset];
+        return;
+    }
+    
+    self.executingA = YES;
+    self.connection = [[NSURLConnection alloc] initWithRequest:self.request delegate:self];
+    CFRunLoopRun();
+}
+
+#pragma mark - NSURLConnection Delegate
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    self.imageData = [NSMutableData data];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    [self.imageData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    CFRunLoopStop(CFRunLoopGetCurrent());
+    UIImage *image = [UIImage imageWithData:self.imageData];
+    !self.completedBlock ?: self.completedBlock(image, nil);
+    self.finishedA = YES;
+    self.executingA = NO;
+    [self reset];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    CFRunLoopStop(CFRunLoopGetCurrent());
+    !self.completedBlock ?: self.completedBlock(nil, error);
+    self.finishedA = YES;
+    self.executingA = NO;
+    [self reset];
 }
 
 @end

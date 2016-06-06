@@ -27,7 +27,11 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:tableViewIdentifier];
     
-    self.testArray = @[@"非并发Operation 手动启动，不加在queue中"];
+    self.testArray = @[@"非并发Operation 手动启动，不加在queue中",
+                       @"并发Operation 手动启动，不加在queue中",
+                       @"非并发Operation 加在queue",
+                       @"并发Operation 加在queue",
+                       @"NSURLConnection+Queue"];
 }
 
 
@@ -50,10 +54,12 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSString *className = [NSString stringWithFormat:@"Test%@TableViewController", @(indexPath.row + 1)];
+    NSString *className = [NSString stringWithFormat:@"Test%@ViewController", @(indexPath.row + 1)];
     
     UIViewController *viewController = [[NSClassFromString(className) alloc] init];
     viewController.title = self.testArray[indexPath.row];
+    
+    if (!viewController) return;
     
     [self.navigationController pushViewController:viewController animated:YES];
 }

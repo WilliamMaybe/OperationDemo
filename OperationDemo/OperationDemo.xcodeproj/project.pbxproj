@@ -10,11 +10,14 @@
 		2DD77F951D02AF5100368115 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD77F941D02AF5100368115 /* ImageTableViewCell.m */; };
 		2DD77F991D02B37100368115 /* ImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD77F981D02B37100368115 /* ImageDownloadOperation.m */; };
 		2DD77F9C1D02B43F00368115 /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD77F9B1D02B43F00368115 /* ImageManager.m */; };
-		2DD77F9F1D02C20500368115 /* Test1TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD77F9E1D02C20500368115 /* Test1TableViewController.m */; };
-		2DD77FA21D02C2D900368115 /* TestSuperTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD77FA11D02C2D900368115 /* TestSuperTableViewController.m */; };
 		2DD77FAB1D02C59900368115 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DD77FAA1D02C59900368115 /* ImageTableViewCell.xib */; };
-		2DD77FAE1D02CF0C00368115 /* ImageDownloadNonConcurrentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD77FAD1D02CF0C00368115 /* ImageDownloadNonConcurrentOperation.m */; };
 		2DD77FB11D02CF4900368115 /* ImageDownloadBaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD77FB01D02CF4900368115 /* ImageDownloadBaseOperation.m */; };
+		2DEBCA7F1D050FD60001FD75 /* TestBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEBCA7E1D050FD60001FD75 /* TestBaseViewController.m */; };
+		2DEBCA831D05104C0001FD75 /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEBCA821D05104C0001FD75 /* Test1ViewController.m */; };
+		2DEBCA861D0510BB0001FD75 /* Test2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEBCA851D0510BB0001FD75 /* Test2ViewController.m */; };
+		2DEBCA891D051DEB0001FD75 /* Test3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEBCA881D051DEB0001FD75 /* Test3ViewController.m */; };
+		2DEBCA8C1D0520910001FD75 /* Test4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEBCA8B1D0520910001FD75 /* Test4ViewController.m */; };
+		2DEBCA8F1D054BD70001FD75 /* Test5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEBCA8E1D054BD70001FD75 /* Test5ViewController.m */; };
 		2DEC01E51D016CEF0091D217 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC01E41D016CEF0091D217 /* main.m */; };
 		2DEC01E81D016CEF0091D217 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC01E71D016CEF0091D217 /* AppDelegate.m */; };
 		2DEC01EB1D016CEF0091D217 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC01EA1D016CEF0091D217 /* ViewController.m */; };
@@ -49,15 +52,21 @@
 		2DD77F981D02B37100368115 /* ImageDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloadOperation.m; sourceTree = "<group>"; };
 		2DD77F9A1D02B43F00368115 /* ImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
 		2DD77F9B1D02B43F00368115 /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
-		2DD77F9D1D02C20500368115 /* Test1TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test1TableViewController.h; sourceTree = "<group>"; };
-		2DD77F9E1D02C20500368115 /* Test1TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test1TableViewController.m; sourceTree = "<group>"; };
-		2DD77FA01D02C2D900368115 /* TestSuperTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSuperTableViewController.h; sourceTree = "<group>"; };
-		2DD77FA11D02C2D900368115 /* TestSuperTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSuperTableViewController.m; sourceTree = "<group>"; };
 		2DD77FAA1D02C59900368115 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
-		2DD77FAC1D02CF0C00368115 /* ImageDownloadNonConcurrentOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloadNonConcurrentOperation.h; sourceTree = "<group>"; };
-		2DD77FAD1D02CF0C00368115 /* ImageDownloadNonConcurrentOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloadNonConcurrentOperation.m; sourceTree = "<group>"; };
 		2DD77FAF1D02CF4900368115 /* ImageDownloadBaseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloadBaseOperation.h; sourceTree = "<group>"; };
 		2DD77FB01D02CF4900368115 /* ImageDownloadBaseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloadBaseOperation.m; sourceTree = "<group>"; };
+		2DEBCA7D1D050FD60001FD75 /* TestBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestBaseViewController.h; path = OperationDemo/Test/TestBaseViewController.h; sourceTree = SOURCE_ROOT; };
+		2DEBCA7E1D050FD60001FD75 /* TestBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestBaseViewController.m; path = OperationDemo/Test/TestBaseViewController.m; sourceTree = SOURCE_ROOT; };
+		2DEBCA811D05104C0001FD75 /* Test1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test1ViewController.h; sourceTree = "<group>"; };
+		2DEBCA821D05104C0001FD75 /* Test1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test1ViewController.m; sourceTree = "<group>"; };
+		2DEBCA841D0510BB0001FD75 /* Test2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test2ViewController.h; sourceTree = "<group>"; };
+		2DEBCA851D0510BB0001FD75 /* Test2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test2ViewController.m; sourceTree = "<group>"; };
+		2DEBCA871D051DEB0001FD75 /* Test3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test3ViewController.h; sourceTree = "<group>"; };
+		2DEBCA881D051DEB0001FD75 /* Test3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test3ViewController.m; sourceTree = "<group>"; };
+		2DEBCA8A1D0520910001FD75 /* Test4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test4ViewController.h; sourceTree = "<group>"; };
+		2DEBCA8B1D0520910001FD75 /* Test4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test4ViewController.m; sourceTree = "<group>"; };
+		2DEBCA8D1D054BD70001FD75 /* Test5ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test5ViewController.h; sourceTree = "<group>"; };
+		2DEBCA8E1D054BD70001FD75 /* Test5ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test5ViewController.m; sourceTree = "<group>"; };
 		2DEC01E01D016CEF0091D217 /* OperationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OperationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DEC01E41D016CEF0091D217 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2DEC01E61D016CEF0091D217 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -110,10 +119,27 @@
 				2DD77F981D02B37100368115 /* ImageDownloadOperation.m */,
 				2DD77F9A1D02B43F00368115 /* ImageManager.h */,
 				2DD77F9B1D02B43F00368115 /* ImageManager.m */,
-				2DD77FAC1D02CF0C00368115 /* ImageDownloadNonConcurrentOperation.h */,
-				2DD77FAD1D02CF0C00368115 /* ImageDownloadNonConcurrentOperation.m */,
 			);
 			path = Operation;
+			sourceTree = "<group>";
+		};
+		2DEBCA801D0510180001FD75 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				2DEBCA7D1D050FD60001FD75 /* TestBaseViewController.h */,
+				2DEBCA7E1D050FD60001FD75 /* TestBaseViewController.m */,
+				2DEBCA811D05104C0001FD75 /* Test1ViewController.h */,
+				2DEBCA821D05104C0001FD75 /* Test1ViewController.m */,
+				2DEBCA841D0510BB0001FD75 /* Test2ViewController.h */,
+				2DEBCA851D0510BB0001FD75 /* Test2ViewController.m */,
+				2DEBCA871D051DEB0001FD75 /* Test3ViewController.h */,
+				2DEBCA881D051DEB0001FD75 /* Test3ViewController.m */,
+				2DEBCA8A1D0520910001FD75 /* Test4ViewController.h */,
+				2DEBCA8B1D0520910001FD75 /* Test4ViewController.m */,
+				2DEBCA8D1D054BD70001FD75 /* Test5ViewController.h */,
+				2DEBCA8E1D054BD70001FD75 /* Test5ViewController.m */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		2DEC01D71D016CEF0091D217 = {
@@ -143,10 +169,7 @@
 				2DEC01E71D016CEF0091D217 /* AppDelegate.m */,
 				2DEC01E91D016CEF0091D217 /* ViewController.h */,
 				2DEC01EA1D016CEF0091D217 /* ViewController.m */,
-				2DD77FA01D02C2D900368115 /* TestSuperTableViewController.h */,
-				2DD77FA11D02C2D900368115 /* TestSuperTableViewController.m */,
-				2DD77F9D1D02C20500368115 /* Test1TableViewController.h */,
-				2DD77F9E1D02C20500368115 /* Test1TableViewController.m */,
+				2DEBCA801D0510180001FD75 /* Test */,
 				2DD77F931D02AF5100368115 /* ImageTableViewCell.h */,
 				2DD77F941D02AF5100368115 /* ImageTableViewCell.m */,
 				2DD77FAA1D02C59900368115 /* ImageTableViewCell.xib */,
@@ -317,16 +340,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DEBCA861D0510BB0001FD75 /* Test2ViewController.m in Sources */,
 				2DD77F991D02B37100368115 /* ImageDownloadOperation.m in Sources */,
+				2DEBCA7F1D050FD60001FD75 /* TestBaseViewController.m in Sources */,
+				2DEBCA891D051DEB0001FD75 /* Test3ViewController.m in Sources */,
 				2DEC01EB1D016CEF0091D217 /* ViewController.m in Sources */,
-				2DD77FAE1D02CF0C00368115 /* ImageDownloadNonConcurrentOperation.m in Sources */,
+				2DEBCA831D05104C0001FD75 /* Test1ViewController.m in Sources */,
 				2DD77F951D02AF5100368115 /* ImageTableViewCell.m in Sources */,
+				2DEBCA8C1D0520910001FD75 /* Test4ViewController.m in Sources */,
 				2DD77F9C1D02B43F00368115 /* ImageManager.m in Sources */,
-				2DD77F9F1D02C20500368115 /* Test1TableViewController.m in Sources */,
 				2DD77FB11D02CF4900368115 /* ImageDownloadBaseOperation.m in Sources */,
 				2DEC01E81D016CEF0091D217 /* AppDelegate.m in Sources */,
+				2DEBCA8F1D054BD70001FD75 /* Test5ViewController.m in Sources */,
 				2DEC01E51D016CEF0091D217 /* main.m in Sources */,
-				2DD77FA21D02C2D900368115 /* TestSuperTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

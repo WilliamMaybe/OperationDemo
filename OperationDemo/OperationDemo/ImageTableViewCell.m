@@ -15,14 +15,28 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 @property (weak, nonatomic) IBOutlet UILabel *failedLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *ignoreCacheLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *ignoreCacheSwitch;
+
 @end
 
 @implementation ImageTableViewCell
 
 - (void)setImageURLString:(NSString *)imageURLString
 {
+    [self setImageURLString:imageURLString ignoreCache:NO];
+}
+
+- (void)setImageURLString:(NSString *)imageURLString ignoreCache:(BOOL)ignoreCache
+{
     _imageURLString = imageURLString;
-    [self imageDownloadIfNeed];
+    [self imageDownloadIfNeedIgnoreCache:ignoreCache];
+}
+
+- (void)setShowIgnoreCache:(BOOL)showIgnoreCache
+{
+    self.ignoreCacheLabel.alpha  = showIgnoreCache;
+    self.ignoreCacheSwitch.alpha = showIgnoreCache;
 }
 
 - (void)awakeFromNib {
@@ -35,6 +49,7 @@
 {
     [self.indicatorView startAnimating];
     self.failedLabel.alpha = 0.f;
+    self.pictureView.image = nil;
 }
 
 - (void)downloadImageCompleted:(UIImage *)image
@@ -48,12 +63,26 @@
     [self downloadFailed:error];
 }
 
+#pragma mark - Button Click
+- (IBAction)switchValueChanged:(UISwitch *)sender
+{
+    !self.ignoreCacheBlock ?: self.ignoreCacheBlock(self, sender.isOn);
+}
+
 #pragma mark - Private Method
-- (void)imageDownloadIfNeed
+- (void)imageDownloadIfNeedIgnoreCache:(BOOL)ignoreCache
 {
     [self startLoading];
+    
+    ImageDownloadOperationOption option = ImageDownloadOperationOptionDefault;
+    
+    if (ignoreCache)
+    {
+        option |= ImageDownloadOperationOptionIgnoreCached;
+    }
+    
     __weak typeof(self) weakSelf = self;
-    [[ImageManager shareInstance] downloadImageWithURLString:self.imageURLString completed:^(UIImage *image, NSError *error) {
+    [[ImageManager shareInstance] downloadImageWithURLString:self.imageURLString options:option completed:^(UIImage *image, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error)
             {

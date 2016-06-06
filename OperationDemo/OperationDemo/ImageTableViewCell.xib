@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -29,20 +30,38 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <switch opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bnE-5i-XjL">
+                        <rect key="frame" x="517" y="59" width="51" height="31"/>
+                        <connections>
+                            <action selector="switchValueChanged:" destination="vSu-xu-0pK" eventType="valueChanged" id="bSo-fD-T9t"/>
+                        </connections>
+                    </switch>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Igonre Cache" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7L2-TH-zSY">
+                        <rect key="frame" x="490" y="30" width="102" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="bnE-5i-XjL" firstAttribute="top" secondItem="7L2-TH-zSY" secondAttribute="bottom" constant="8" symbolic="YES" id="1Y8-LO-kwi"/>
                     <constraint firstAttribute="bottom" secondItem="a4E-Af-BWg" secondAttribute="bottom" id="2va-lN-4iB"/>
                     <constraint firstItem="sgN-aK-yfh" firstAttribute="centerX" secondItem="TGm-cW-do0" secondAttribute="centerX" id="FSx-VJ-Ncv"/>
                     <constraint firstItem="a4E-Af-BWg" firstAttribute="top" secondItem="TGm-cW-do0" secondAttribute="top" id="Fag-rC-PMN"/>
                     <constraint firstItem="a4E-Af-BWg" firstAttribute="centerX" secondItem="TGm-cW-do0" secondAttribute="centerX" id="Fbs-vf-9dv"/>
                     <constraint firstItem="kTm-Y2-R3p" firstAttribute="centerY" secondItem="TGm-cW-do0" secondAttribute="centerY" id="PaO-Rw-sBr"/>
+                    <constraint firstItem="7L2-TH-zSY" firstAttribute="centerX" secondItem="bnE-5i-XjL" secondAttribute="centerX" id="VZY-v5-mHR"/>
                     <constraint firstItem="sgN-aK-yfh" firstAttribute="centerY" secondItem="TGm-cW-do0" secondAttribute="centerY" id="XCv-fA-CHY"/>
+                    <constraint firstItem="7L2-TH-zSY" firstAttribute="trailing" secondItem="TGm-cW-do0" secondAttribute="trailingMargin" id="anv-G5-Pv1"/>
+                    <constraint firstItem="7L2-TH-zSY" firstAttribute="top" secondItem="TGm-cW-do0" secondAttribute="topMargin" constant="22" id="axd-T9-xag"/>
                     <constraint firstItem="kTm-Y2-R3p" firstAttribute="centerX" secondItem="TGm-cW-do0" secondAttribute="centerX" id="che-5l-OGz"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.58197999600000005" green="1" blue="0.58253089030000005" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="failedLabel" destination="sgN-aK-yfh" id="hZ0-3Z-nN7"/>
+                <outlet property="ignoreCacheLabel" destination="7L2-TH-zSY" id="UHn-xR-pHP"/>
+                <outlet property="ignoreCacheSwitch" destination="bnE-5i-XjL" id="mfl-dr-g76"/>
                 <outlet property="indicatorView" destination="kTm-Y2-R3p" id="0hW-Zx-e9z"/>
                 <outlet property="pictureView" destination="a4E-Af-BWg" id="APH-g3-TjE"/>
             </connections>

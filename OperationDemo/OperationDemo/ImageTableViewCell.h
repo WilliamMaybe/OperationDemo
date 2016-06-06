@@ -14,6 +14,10 @@
  *  使用set后自动下载使用NSOperationQueue图片
  */
 @property (nonatomic, strong) NSString *imageURLString;
+- (void)setImageURLString:(NSString *)imageURLString ignoreCache:(BOOL)ignoreCache;
+
+@property (nonatomic, assign) BOOL showIgnoreCache;
+@property (nonatomic, copy) void (^ignoreCacheBlock)(ImageTableViewCell *cell, BOOL ignore);
 
 - (void)startLoading;
 - (void)downloadImageCompleted:(UIImage *)image;

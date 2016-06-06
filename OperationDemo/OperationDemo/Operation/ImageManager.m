@@ -63,7 +63,17 @@ NSUInteger CahceCostForImage(UIImage *image)
 #pragma mark - API Method
 - (ImageDownloadOperation *)downloadImageWithURLString:(NSString *)urlString completed:(ImageDownloadCompletedBlock)completedBlock
 {
+    return [self downloadImageWithURLString:urlString options:ImageDownloadOperationOptionDefault completed:completedBlock];
+}
+
+- (ImageDownloadOperation *)downloadImageWithURLString:(NSString *)urlString options:(ImageDownloadOperationOption)options completed:(ImageDownloadCompletedBlock)completedBlock
+{
     UIImage *image = [self.imageCache objectForKey:urlString];
+    if (options & ImageDownloadOperationOptionIgnoreCached)
+    {
+        image = nil;
+    }
+    
     if (image)
     {
         !completedBlock ?: completedBlock(image, nil);
