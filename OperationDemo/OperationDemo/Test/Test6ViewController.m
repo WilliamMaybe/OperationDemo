@@ -50,16 +50,21 @@
         return cell;
     }
     
+    __weak typeof(self) weakSelf = self;
     [[self.sessionManager downloadImageWithURLString:self.imageURLStringArray[ROW] completed:^(UIImage *image, NSError *error) {
-        if (error)
-        {
-            [cell downloadImageFailed:error];
-        }
-        else
-        {
-            self.imageArray[ROW] = image;
-            [cell downloadImageCompleted:image];
-        }
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error)
+            {
+                [cell downloadImageFailed:error];
+            }
+            else
+            {
+                strongSelf.imageArray[ROW] = image;
+                [cell downloadImageCompleted:image];
+            }
+        });
+        
     }] resume];
     
     return cell;

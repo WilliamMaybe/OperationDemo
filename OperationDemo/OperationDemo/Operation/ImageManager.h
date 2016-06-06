@@ -9,11 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "ImageDownloadOperation.h"
 
-typedef NS_ENUM(NSUInteger, ImageDownloadOperationOption) {
-    ImageDownloadOperationOptionDefault      = 0,
-    ImageDownloadOperationOptionIgnoreCached = 1 << 0,
-};
-
 @interface ImageManager : NSOperation
 
 + (instancetype)shareInstance;

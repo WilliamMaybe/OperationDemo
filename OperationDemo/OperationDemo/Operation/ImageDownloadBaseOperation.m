@@ -46,10 +46,16 @@
 
 - (instancetype)initWithImageURL:(NSString *)imageURL completion:(ImageDownloadCompletedBlock)completedBlock
 {
+    return [self initWithImageURL:imageURL options:ImageDownloadOperationOptionDefault completion:completedBlock];
+}
+
+- (instancetype)initWithImageURL:(NSString *)imageURL options:(ImageDownloadOperationOption)options completion:(ImageDownloadCompletedBlock)completedBlock
+{
     if (self = [super init])
     {
         _imageURL = [NSURL URLWithString:[imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
         _completedBlock = [completedBlock copy];
+        _options = options;
     }
     return self;
 }

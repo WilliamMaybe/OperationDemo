@@ -81,7 +81,7 @@ NSUInteger CahceCostForImage(UIImage *image)
         return operation;
     }
     
-    ImageDownloadOperation *operation = [[ImageDownloadOperation alloc] initWithImageURL:urlString completion:^(UIImage *image, NSError *error) {
+    ImageDownloadOperation *operation = [[ImageDownloadOperation alloc] initWithImageURL:urlString options:options completion:^(UIImage *image, NSError *error) {
         if (image)
         {
             [self.imageCache setObject:image forKey:urlString cost:CahceCostForImage(image)];

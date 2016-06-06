@@ -38,6 +38,11 @@ typedef void(^ImageSessionDownloadCompletedBlock)(UIImage *image, NSError *error
     if (!self.completedBlock) { return; }
     
     UIImage *image = [UIImage imageWithData:self.imageData];
+    if (!image && !error)
+    {
+        error = [NSError errorWithDomain:@"ImageSessionDomain" code:0 userInfo:@{NSLocalizedDescriptionKey:@"image data is nil"}];
+    }
+    
     self.completedBlock(image, error);
 }
 
@@ -72,7 +77,7 @@ typedef void(^ImageSessionDownloadCompletedBlock)(UIImage *image, NSError *error
         
         // 其实queue有没有也无所谓,delegateQueue为nil时session会自动创建一个串行队列
         self.operationQueue = [[NSOperationQueue alloc] init];
-        self.operationQueue.maxConcurrentOperationCount = 1;
+//        self.operationQueue.maxConcurrentOperationCount = 1;
         self.session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:self.operationQueue];
     }
     return self;

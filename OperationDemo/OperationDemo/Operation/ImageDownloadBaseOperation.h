@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, ImageDownloadOperationOption) {
+    ImageDownloadOperationOptionDefault      = 0,
+    ImageDownloadOperationOptionIgnoreCached = 1 << 0,
+};
+
 typedef void(^ImageDownloadCompletedBlock)(UIImage *image, NSError *error);
 
 @interface ImageDownloadBaseOperation : NSOperation
@@ -18,7 +23,10 @@ typedef void(^ImageDownloadCompletedBlock)(UIImage *image, NSError *error);
 @property (nonatomic, strong) NSURL *imageURL;
 @property (nonatomic, copy) ImageDownloadCompletedBlock completedBlock;
 
+@property (nonatomic, assign) ImageDownloadOperationOption options;
+
 - (instancetype)initWithImageURL:(NSString *)imageURL completion:(ImageDownloadCompletedBlock)completedBlock;
+- (instancetype)initWithImageURL:(NSString *)imageURL options:(ImageDownloadOperationOption)options completion:(ImageDownloadCompletedBlock)completedBlock;
 
 - (void)reset;
 

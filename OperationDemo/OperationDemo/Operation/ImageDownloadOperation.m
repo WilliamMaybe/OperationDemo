@@ -19,11 +19,11 @@
 
 @implementation ImageDownloadOperation
 
-- (instancetype)initWithImageURL:(NSString *)imageURL completion:(ImageDownloadCompletedBlock)completedBlock
+- (instancetype)initWithImageURL:(NSString *)imageURL options:(ImageDownloadOperationOption)options completion:(ImageDownloadCompletedBlock)completedBlock
 {
-    if (self = [super initWithImageURL:imageURL completion:completedBlock])
+    if (self = [super initWithImageURL:imageURL options:options completion:completedBlock])
     {
-        self.request = [[NSURLRequest alloc] initWithURL:self.imageURL];
+        self.request = [[NSURLRequest alloc] initWithURL:self.imageURL cachePolicy:(self.options & ImageDownloadOperationOptionIgnoreCached ? NSURLRequestReloadIgnoringCacheData : NSURLRequestUseProtocolCachePolicy) timeoutInterval:60];
     }
     return self;
 }
