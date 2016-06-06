@@ -1,18 +1,18 @@
 //
-//  TestSuperTableViewController.m
+//  TestBaseViewController.m
 //  OperationDemo
 //
-//  Created by zhangyi on 16/6/4.
+//  Created by zhangyi on 16/6/6.
 //  Copyright © 2016年 Hikvision. All rights reserved.
 //
 
-#import "TestSuperTableViewController.h"
+#import "TestBaseViewController.h"
 
-@interface TestSuperTableViewController ()
+@interface TestBaseViewController ()
 
 @end
 
-@implementation TestSuperTableViewController
+@implementation TestBaseViewController
 
 - (NSArray *)imageURLStringArray
 {
@@ -33,7 +33,13 @@
     [ImageManager shareInstance].manually = NO;
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 #pragma mark - Table view data source
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.imageURLStringArray count];
