@@ -31,7 +31,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
                        @"并发Operation 手动启动，不加在queue中",
                        @"非并发Operation 加在queue",
                        @"并发Operation 加在queue",
-                       @"NSURLConnection+Queue"];
+                       @"NSURLConnection+Queue",
+                       @"NSURLSession+Queue"];
 }
 
 

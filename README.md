@@ -55,5 +55,40 @@ stop的方法能够及时的停止线程的CFRunLoop object，文档是说当所
 ```
 其实就和SDWebImage的CFRunLoopRun()类似。不过AFNetworking的话，是实现自己创建一个子线程,然后让该线程的CFRunLoop object开始run。之后所有的Connection发起、回调都是在该线程中。
 
+##NSURLSession+Queue
+使用URLSession进行下载。		
+看了下AFNetworking的创建方法，自己仿照了一下。		
+创建NSURLSession的时候填不填delegateQueue其实是无所谓的，如果我们传入nil的话，系统内部会自动创建一个串行operationQueue。
+
+```	
+- (instancetype)initWithSessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration
+{
+    if (self = [super init])
+    {
+        self.taskCompletedDelegatesKeyByTaskIdentifier = [NSMutableDictionary dictionary];
+        
+        if (!sessionConfiguration)
+        {
+            sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        }
+        
+        // 其实queue有没有也无所谓,delegateQueue为nil时session会自动创建一个串行队列
+        self.operationQueue = [[NSOperationQueue alloc] init];
+        self.operationQueue.maxConcurrentOperationCount = 1;
+        self.session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:self.operationQueue];
+    }
+    return self;
+}
+```
+相对应的不再是operation，变成了NSURLSessionTask，有4个继承
+
+- NSURLSessionDataTask
+- NSURLSessionUploadTask
+- NSURLSessionDownloadTask
+- NSURLSessionStreamTask
+ 
+创建方法都比较简单。比较有意思的是，发现AFNetworking在内部还会创建一个`AFURLSessionManagerTaskDelegate`，用来存储回调block，基础数据等，然后用`task.taskIdentifier`为key，在manager中存储下来。
+
 ##Question
 - 不是很明白为什么重载`main`的时候需要用到**`autoreleasepool`**
+- `main`的非并发，只能说知道是个什么意思但是不知道有什么意思，暂时做的效果和并发都是一样的。
