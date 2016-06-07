@@ -89,6 +89,8 @@
 		2DEC02041D016CF00091D217 /* OperationDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OperationDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DEC02081D016CF00091D217 /* OperationDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OperationDemoUITests.m; sourceTree = "<group>"; };
 		2DEC020A1D016CF00091D217 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DFC9A411D0668280083F36A /* SessionLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionLog.h; sourceTree = "<group>"; };
+		2DFC9A421D0668650083F36A /* OperationDemo.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperationDemo.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,12 +181,14 @@
 				2DEC01E71D016CEF0091D217 /* AppDelegate.m */,
 				2DEC01E91D016CEF0091D217 /* ViewController.h */,
 				2DEC01EA1D016CEF0091D217 /* ViewController.m */,
+				2DFC9A411D0668280083F36A /* SessionLog.h */,
 				2DEBCA801D0510180001FD75 /* Test */,
 				2DD77F931D02AF5100368115 /* ImageTableViewCell.h */,
 				2DD77F941D02AF5100368115 /* ImageTableViewCell.m */,
 				2DD77FAA1D02C59900368115 /* ImageTableViewCell.xib */,
 				2DD77F961D02B34700368115 /* Operation */,
 				2DEC01EC1D016CEF0091D217 /* Main.storyboard */,
+				2DFC9A421D0668650083F36A /* OperationDemo.pch */,
 				2DEC01EF1D016CEF0091D217 /* Assets.xcassets */,
 				2DEC01F11D016CEF0091D217 /* LaunchScreen.storyboard */,
 				2DEC01F41D016CEF0091D217 /* Info.plist */,
@@ -507,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = OperationDemo/OperationDemo.pch;
 				INFOPLIST_FILE = OperationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hikvision.OperationDemo;
@@ -518,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = OperationDemo/OperationDemo.pch;
 				INFOPLIST_FILE = OperationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hikvision.OperationDemo;

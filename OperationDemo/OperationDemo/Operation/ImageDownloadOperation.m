@@ -50,19 +50,19 @@
 #pragma mark - NSURLConnection Delegate
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+//    SESSION_LOG(@"%@", NSStringFromSelector(_cmd));
     self.imageData = [NSMutableData data];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    SESSION_LOG(@"<connection: %p> : %@", connection, @"didReceiveData");
     [self.imageData appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    SESSION_LOG(@"<connection: %p> : %@", connection, @"didFinishLoading");
     CFRunLoopStop(CFRunLoopGetCurrent());
     UIImage *image = [UIImage imageWithData:self.imageData];
     !self.completedBlock ?: self.completedBlock(image, nil);
@@ -73,7 +73,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    SESSION_LOG(@"<connection: %p> : %@", connection, @"didFail");
     CFRunLoopStop(CFRunLoopGetCurrent());
     !self.completedBlock ?: self.completedBlock(nil, error);
     self.finishedA = YES;

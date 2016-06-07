@@ -12,6 +12,6 @@
 
 - (instancetype)initWithSessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration NS_DESIGNATED_INITIALIZER;
 
-- (NSURLSessionDataTask *)downloadImageWithURLString:(NSString *)urlString completed:(void (^)(UIImage *image, NSError *error))completedBlock;
+- (NSURLSessionDataTask *)downloadImageWithURLString:(NSString *)urlString ignoreCached:(BOOL)ignoreCached completed:(void (^)(UIImage *image, NSError *error))completedBlock;
 
 @end

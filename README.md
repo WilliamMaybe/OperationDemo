@@ -90,5 +90,15 @@ stop的方法能够及时的停止线程的CFRunLoop object，文档是说当所
 创建方法都比较简单。比较有意思的是，发现AFNetworking在内部还会创建一个`AFURLSessionManagerTaskDelegate`，用来存储回调block，基础数据等，然后用`task.taskIdentifier`为key，在manager中存储下来。
 
 ##Question
-- 不是很明白为什么重载`main`的时候需要用到**`autoreleasepool`**
-- `main`的非并发，只能说知道是个什么意思但是不知道有什么意思，暂时做的效果和并发都是一样的。
+1. 不是很明白为什么重载`main`的时候需要用到**`autoreleasepool`**
+2. ~~`main`的非并发，只能说知道是个什么意思但是不知道有什么意思，暂时做的效果和并发都是一样的。~~
+3. ~~NSURLSession设置delegateQueue.maxConcurrentOperationCount=1时,同时启动多个NSURLSessionTask，会多个任务同时进行，并没有非并发。~~
+
+##Answer
+可能解释有误0.0
+
+1. `main`方法文档上是说会自动在autorelease pool执行代码。然后网上看了一些，说是在子线程的时候有可能访问不到主线程上的autorelease pool。还是不是很明白。。。	
+`This method will automatically execute within an autorelease pool provided by NSOperation, so you do not need to create your own autorelease pool block in your implementation.`
+
+2.	非并发其实就是不论你有多少个线程多少个任务，在一个时间段内就只运行一个任务，即使你把任务分配到不同的线程上去，还是只运行一个。 
+3. 测试了一下，在接收到data的地方打断点输出，发现Apple应该是将NSURLSession分成了n个Operation来进行操作，所以maxConcurrentOperationCount＝1时实际上还是非并发的。

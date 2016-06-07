@@ -46,7 +46,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableViewIdentifier];
     
-    cell.textLabel.text = self.testArray[indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", indexPath.row + 1, self.testArray[indexPath.row]];
 
     return cell;
 }

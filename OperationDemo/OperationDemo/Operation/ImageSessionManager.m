@@ -77,17 +77,17 @@ typedef void(^ImageSessionDownloadCompletedBlock)(UIImage *image, NSError *error
         
         // 其实queue有没有也无所谓,delegateQueue为nil时session会自动创建一个串行队列
         self.operationQueue = [[NSOperationQueue alloc] init];
-//        self.operationQueue.maxConcurrentOperationCount = 1;
+        self.operationQueue.maxConcurrentOperationCount = 1;
         self.session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:self.operationQueue];
     }
     return self;
 }
 
-- (NSURLSessionDataTask *)downloadImageWithURLString:(NSString *)urlString completed:(void (^)(UIImage *, NSError *))completedBlock
+- (NSURLSessionDataTask *)downloadImageWithURLString:(NSString *)urlString ignoreCached:(BOOL)ignoreCached completed:(void (^)(UIImage *, NSError *))completedBlock
 {
     NSURLSessionDataTask *dataTask;
     
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]] cachePolicy:(ignoreCached ? NSURLRequestReloadIgnoringCacheData : NSURLRequestUseProtocolCachePolicy) timeoutInterval:60];
     dataTask = [self.session dataTaskWithRequest:request];
     
     ImageSessionTaskDelegate *delegate = [[ImageSessionTaskDelegate alloc] init];
@@ -102,14 +102,16 @@ typedef void(^ImageSessionDownloadCompletedBlock)(UIImage *image, NSError *error
 #pragma mark - NSURLSessionDataDelegate
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(nonnull NSData *)data
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    SESSION_LOG(@"<operation: %p> :%@", [self.operationQueue.operations firstObject], @"didReceiveData");
+    SESSION_LOG(@"<session: %p> : %@", dataTask, @"didReceiveData");
     ImageSessionTaskDelegate *delegate = self.taskCompletedDelegatesKeyByTaskIdentifier[@(dataTask.taskIdentifier)];
     [delegate URLSession:session dataTask:dataTask didReceiveData:data];
 }
 
 - (void)URLSession:(NSURLSession *)session task:(nonnull NSURLSessionTask *)task didCompleteWithError:(nullable NSError *)error
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    SESSION_LOG(@"<operation: %p> :%@", [self.operationQueue.operations firstObject], @"didComplete");
+    SESSION_LOG(@"<session: %p> : %@", task, @"didComplete");
     ImageSessionTaskDelegate *delegate = self.taskCompletedDelegatesKeyByTaskIdentifier[@(task.taskIdentifier)];
     if (delegate)
     {
