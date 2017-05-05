@@ -514,7 +514,7 @@
 				GCC_PREFIX_HEADER = OperationDemo/OperationDemo.pch;
 				INFOPLIST_FILE = OperationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Hikvision.OperationDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.money.OperationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -526,7 +526,7 @@
 				GCC_PREFIX_HEADER = OperationDemo/OperationDemo.pch;
 				INFOPLIST_FILE = OperationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Hikvision.OperationDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.money.OperationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -537,7 +537,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OperationDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Hikvision.OperationDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.money.OperationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OperationDemo.app/OperationDemo";
 			};
@@ -549,7 +549,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OperationDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Hikvision.OperationDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.money.OperationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OperationDemo.app/OperationDemo";
 			};
@@ -560,7 +560,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = OperationDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Hikvision.OperationDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.money.OperationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = OperationDemo;
 			};
@@ -571,7 +571,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = OperationDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Hikvision.OperationDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.money.OperationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = OperationDemo;
 			};
